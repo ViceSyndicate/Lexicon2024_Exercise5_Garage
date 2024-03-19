@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lexicon2024_Exercise5_Garage
 {
-    internal class Handler : IHandler
+    internal class GarageHandler : IGarageHandler
     {
     }
 }
