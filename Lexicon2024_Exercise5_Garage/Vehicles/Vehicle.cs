@@ -9,11 +9,31 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
 {
     internal class Vehicle : IVehicle
     {
-        public string RegistrationNumber { get; set; } // Unique
-        public string Color { get; set; }
-        public int Wheels { get; set; }
-        public int PassengerLimit { get; set; }
-        public Color VehicleColor { get; set; }
+        private List<char> registrationNumber;
+        private int wheels;
+        private int passangerLimit;
+        private Color color;
+
+        public List<char> RegistrationNumber
+        {
+            get { return registrationNumber; }
+            set { registrationNumber = value; } // Hope this works!
+        } // Unique
+        public int Wheels
+        {
+            get { return wheels; }
+            set { wheels = value; }
+        }
+        public int PassengerLimit
+        {
+            get { return passangerLimit; }
+            set { PassengerLimit = value; }
+        }
+        public Color VehicleColor
+        {
+            get { return color; }
+            set { color = value; }
+        }
     }
     enum Color
     {
@@ -22,12 +42,11 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         Blue,
         Yellow,
         Cyan,
-        Purple, 
+        Purple,
         Pink,
         White,
         Gray,
         Black,
         Multicolored
-
     }
 }
