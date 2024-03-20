@@ -1,4 +1,5 @@
-﻿using Lexicon2024_Exercise5_Garage.Interfaces;
+﻿using Lexicon2024_Exercise5_Garage.Vehicles;
+using Lexicon2024_Exercise5_Garage.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace Lexicon2024_Exercise5_Garage
 {
-    internal class GarageHandler : IGarageHandler
+    //internal class GarageHandler : IGarageHandler
+    internal class GarageHandler
     {
+        public GarageHandler()
+        {
+            Garage<Vehicle> garage = new Garage<Vehicle>(32);
+        }
     }
 }
