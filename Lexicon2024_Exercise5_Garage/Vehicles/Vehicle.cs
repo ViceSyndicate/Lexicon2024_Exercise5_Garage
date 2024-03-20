@@ -13,5 +13,21 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         public string Color { get; set; }
         public int Wheels { get; set; }
         public int PassengerLimit { get; set; }
+        public Color VehicleColor { get; set; }
+    }
+    enum Color
+    {
+        Red,
+        Green,
+        Blue,
+        Yellow,
+        Cyan,
+        Purple, 
+        Pink,
+        White,
+        Gray,
+        Black,
+        Multicolored
+
     }
 }
