@@ -22,20 +22,7 @@ namespace Lexicon2024_Exercise5_Garage
             ui = new UI();
             //GarageHandler garageHandler = new GarageHandler(32);
             garageHandler = new GarageHandler(32);
+            int vehiclesInGarage = garageHandler.VehiclesInGarage();
         }
-        public void CreateGarage(int parkingSpots)
-        {
-            garageHandler = new GarageHandler(parkingSpots);
-        }
-
-        //int vehiclesInGarage = garageHandler.VehiclesInGarage();
-
-        public int VehiclesInGarage()
-        {
-            Console.WriteLine("Vehicles In Garage: " + garageHandler.VehiclesInGarage());
-            return garageHandler.VehiclesInGarage();
-        }
-
-
     }
 }
