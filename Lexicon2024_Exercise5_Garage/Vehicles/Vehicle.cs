@@ -17,8 +17,15 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         public List<char> RegistrationNumber
         {
             get { return registrationNumber; }
-            set { registrationNumber = value; } // Hope this works!
-        } // Unique
+            set
+            {
+                if (value.Count() > 6)
+                {
+                    throw new ArgumentException("Registration number needs to be 6 characters.");
+                }
+                registrationNumber = value;
+            }
+        }
         public int Wheels
         {
             get { return wheels; }
@@ -27,12 +34,18 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         public int PassengerLimit
         {
             get { return passangerLimit; }
-            set { PassengerLimit = value; }
+            set
+            {
+                if (value < 0) { throw new ArgumentException("PassengerLimit can't be a negative number."); }
+                passangerLimit = value;
+            }
         }
         public Color VehicleColor
         {
             get { return color; }
-            set { color = value; }
+            set
+            { color = value; }
+
         }
     }
     enum Color

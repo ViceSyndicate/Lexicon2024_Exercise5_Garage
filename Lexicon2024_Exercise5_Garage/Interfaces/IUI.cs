@@ -8,5 +8,7 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
 {
     internal interface IUI
     {
+        void ShowMainMenu();
+        int ParseInteger();
     }
 }

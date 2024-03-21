@@ -20,9 +20,8 @@ namespace Lexicon2024_Exercise5_Garage
             // Create UI
             // CreateGarage
             ui = new UI();
+            //GarageHandler garageHandler = new GarageHandler(32);
             garageHandler = new GarageHandler(32);
-            //CreateGarage(32);
-            VehiclesInGarage();
         }
         public void CreateGarage(int parkingSpots)
         {
