@@ -14,6 +14,14 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         private int passangerLimit;
         private Color color;
 
+        public Vehicle(List<char> registrationNumber, int wheels, int passangerLimit, Color color)
+        {
+            this.registrationNumber = registrationNumber;
+            this.wheels = wheels;
+            this.passangerLimit = passangerLimit;
+            this.color = color;
+        }
+        
         public List<char> RegistrationNumber
         {
             get { return registrationNumber; }
