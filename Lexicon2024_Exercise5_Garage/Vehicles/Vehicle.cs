@@ -16,16 +16,20 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
 
         public Vehicle()
         {
-            
+
         }
         public Vehicle(char[] registrationNumber, int wheels, int passangerLimit, Color color)
         {
+            for (int i = 0; i < registrationNumber.Length; i++)
+            {
+                Char.ToUpper(registrationNumber[i]);
+            }
             this.registrationNumber = registrationNumber;
             this.wheels = wheels;
             this.passangerLimit = passangerLimit;
             this.color = color;
         }
-        
+
         public char[] RegistrationNumber
         {
             get { return registrationNumber; }
