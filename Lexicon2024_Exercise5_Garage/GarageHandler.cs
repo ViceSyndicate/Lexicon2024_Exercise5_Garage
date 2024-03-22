@@ -14,25 +14,11 @@ namespace Lexicon2024_Exercise5_Garage
         Garage<Vehicle> garage;
         public GarageHandler(int parkingSpots)
         {
-            Garage<Vehicle> garage = new Garage<Vehicle>(parkingSpots);
+            garage = new Garage<Vehicle>(parkingSpots);
         }
-        public bool ParkVehicle(Vehicle vehicle)
+        public bool TryParkVehicle(Vehicle vehicle)
         {
-            bool parkedFlag = false;
-            foreach (Vehicle parkedVehicle in garage)
-            {
-                if (parkedVehicle.RegistrationNumber == vehicle.RegistrationNumber)
-                {
-                    return false;
-                }
-                else
-                {
-                    parkedFlag = true;
-                }
-            }
-            garage.Append(vehicle);
-            return parkedFlag;
-
+            return garage.TryParkVehicle(vehicle);
 
 
             // We need to send this back to the Manager > UI somehow...?
@@ -54,10 +40,12 @@ namespace Lexicon2024_Exercise5_Garage
         }
         public Dictionary<Type, int> VehiclesInGarage()
         {
+            Vehicle[] vehiclesInGarage = garage.GetVehiclesInGarage();
+
             Dictionary<Type, int> vehicleCounts = new Dictionary<Type, int>();
             try
             {
-                foreach (var vehicle in garage)
+                for (int i = 0; i < garage.Count(); i++)
                 {
                     Type vehicleType = vehicle.GetType();
                     if (vehicleCounts.ContainsKey(vehicleType))

@@ -2,8 +2,10 @@
 using Lexicon2024_Exercise5_Garage.Vehicles;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
@@ -35,11 +37,22 @@ namespace Lexicon2024_Exercise5_Garage
         }
         public short AwaitMenuResult()
         {
+            TMockCar();
             int uiResult = ui.ShowMainMenu();
             short returnVal = 1;
             switch(uiResult)
             {
-                case 1: Vehicle vehicle = ui.RegisterNewVehicle(); 
+                case 1: 
+                    Vehicle vehicle = ui.RegisterNewVehicle();
+                    bool success = garageHandler.TryParkVehicle(vehicle);
+                    if(success)
+                    {
+                        // Call UI to print Added Vehicle
+                    }
+                    else
+                    {
+                        // Call UI to print Failed to add Vehicle
+                    }
                     // Check if RegNr already exists in garage. If it does: Abort.
                     // Add vehicle to Garage with GarageHandler.
                     break;
@@ -58,6 +71,11 @@ namespace Lexicon2024_Exercise5_Garage
             }
             return returnVal;
         }
-        
+        public void TMockCar()
+        {
+            char[] regplate = ['1', '2', '3', 'a', 'b', 'c'];
+            Vehicle vehicle = new Car(regplate, 2, 2, Vehicles.Color.White);
+            bool success = garageHandler.TryParkVehicle(vehicle);
+        }
     }
 }
