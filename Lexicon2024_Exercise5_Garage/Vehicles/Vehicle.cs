@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace Lexicon2024_Exercise5_Garage.Vehicles
 {
-    internal class Vehicle : IVehicle
+    public class Vehicle : IVehicle
     {
-        private List<char> registrationNumber;
+        private char[] registrationNumber;
         private int wheels;
         private int passangerLimit;
         private Color color;
 
-        public Vehicle(List<char> registrationNumber, int wheels, int passangerLimit, Color color)
+        public Vehicle()
+        {
+            
+        }
+        public Vehicle(char[] registrationNumber, int wheels, int passangerLimit, Color color)
         {
             this.registrationNumber = registrationNumber;
             this.wheels = wheels;
@@ -22,14 +26,14 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             this.color = color;
         }
         
-        public List<char> RegistrationNumber
+        public char[] RegistrationNumber
         {
             get { return registrationNumber; }
             set
             {
-                if (value.Count() > 6)
+                if (value.Count() > 8)
                 {
-                    throw new ArgumentException("Registration number needs to be 6 characters.");
+                    throw new ArgumentException("Registration number needs to be 8 characters.");
                 }
                 registrationNumber = value;
             }
@@ -37,7 +41,11 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         public int Wheels
         {
             get { return wheels; }
-            set { wheels = value; }
+            set
+            {
+                if (value < 0) { throw new ArgumentException("PassengerLimit can't be a negative number."); }
+                wheels = value;
+            }
         }
         public int PassengerLimit
         {
@@ -56,18 +64,18 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
 
         }
     }
-    enum Color
+    public enum Color
     {
         Red,
         Green,
         Blue,
-        Yellow,
-        Cyan,
-        Purple,
-        Pink,
+        //Yellow,
+        //Cyan,
+        //Purple,
+        //Pink,
         White,
-        Gray,
+        //Gray,
         Black,
-        Multicolored
+        Other
     }
 }

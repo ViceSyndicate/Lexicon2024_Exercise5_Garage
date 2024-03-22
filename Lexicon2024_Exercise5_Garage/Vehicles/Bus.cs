@@ -9,7 +9,11 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
     internal class Bus : Vehicle
     {
         public int StandingSpots { get; set; }
-        public Bus(int standingSpots, string fueltype, List<char> registrationNumber, int wheels, int passangerLimit, Color color) : base(registrationNumber, wheels, passangerLimit, color)
+        public Bus(char[] registrationNumber, int wheels, int passangerLimit, Color color) : base(registrationNumber, wheels, passangerLimit, color)
+        {
+            
+        }
+        public Bus(int standingSpots, char[] registrationNumber, int wheels, int passangerLimit, Color color) : base(registrationNumber, wheels, passangerLimit, color)
         {
             StandingSpots = standingSpots;
         }

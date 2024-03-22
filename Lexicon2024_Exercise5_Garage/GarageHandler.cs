@@ -16,18 +16,14 @@ namespace Lexicon2024_Exercise5_Garage
         {
             Garage<Vehicle> garage = new Garage<Vehicle>(parkingSpots);
         }
-        public bool RegisterNewVehicle()
+        public bool RegisterNewVehicle(Vehicle vehicle)
         {
             // We need to send this back to the Manager > UI somehow...?
             // Ask what Vehicle type with list menu options.
 
                 // Registration Number, 6 chars 
                 // Check all other vehicles RegistrationNumbers
-                // and abort if duplicates are found. 
 
-                // Wheels
-                // PassengerLimit
-                // Color
             throw new NotImplementedException();
         }
         public bool RemoveVehicle()
@@ -39,15 +35,27 @@ namespace Lexicon2024_Exercise5_Garage
         {
             throw new NotImplementedException();
         }
-        public int VehiclesInGarage() {
-            return garage.Count();
-        }
-        public List<char> ParseRegistrationNumber()
-        {
-            string input;
-            Console.WriteLine("Enter registration Number :");
-            input = Console.ReadLine();
-            return input.ToList();
+        public Dictionary<Type, int> VehiclesInGarage() {
+            Dictionary<Type, int> vehicleCounts = new Dictionary<Type, int>();
+            try
+            {
+                foreach (var vehicle in garage)
+                {
+                    Type vehicleType = vehicle.GetType();
+                    if (vehicleCounts.ContainsKey(vehicleType))
+                    {
+                        vehicleCounts[vehicleType]++;
+                    }
+                    else
+                    {
+                        vehicleCounts.Add(vehicleType, 1);
+                    }
+                }
+                return vehicleCounts;
+            } catch
+            {
+                return vehicleCounts;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lexicon2024_Exercise5_Garage.Vehicles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Lexicon2024_Exercise5_Garage.Interfaces
 {
-    internal interface IUI
+    public interface IUI
     {
-        void ShowMainMenu();
+        int ShowMainMenu();
         int ParseInteger();
+        public Vehicle RegisterNewVehicle();
+        void ShowVehiclesInGarage(Dictionary<Type, int> vehicleCounts);
     }
 }
