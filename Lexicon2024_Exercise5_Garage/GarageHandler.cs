@@ -16,13 +16,30 @@ namespace Lexicon2024_Exercise5_Garage
         {
             Garage<Vehicle> garage = new Garage<Vehicle>(parkingSpots);
         }
-        public bool RegisterNewVehicle(Vehicle vehicle)
+        public bool ParkVehicle(Vehicle vehicle)
         {
+            bool parkedFlag = false;
+            foreach (Vehicle parkedVehicle in garage)
+            {
+                if (parkedVehicle.RegistrationNumber == vehicle.RegistrationNumber)
+                {
+                    return false;
+                }
+                else
+                {
+                    parkedFlag = true;
+                }
+            }
+            garage.Append(vehicle);
+            return parkedFlag;
+
+
+
             // We need to send this back to the Manager > UI somehow...?
             // Ask what Vehicle type with list menu options.
 
-                // Registration Number, 6 chars 
-                // Check all other vehicles RegistrationNumbers
+            // Registration Number, 6 chars 
+            // Check all other vehicles RegistrationNumbers
 
             throw new NotImplementedException();
         }
@@ -35,7 +52,8 @@ namespace Lexicon2024_Exercise5_Garage
         {
             throw new NotImplementedException();
         }
-        public Dictionary<Type, int> VehiclesInGarage() {
+        public Dictionary<Type, int> VehiclesInGarage()
+        {
             Dictionary<Type, int> vehicleCounts = new Dictionary<Type, int>();
             try
             {
@@ -52,7 +70,8 @@ namespace Lexicon2024_Exercise5_Garage
                     }
                 }
                 return vehicleCounts;
-            } catch
+            }
+            catch
             {
                 return vehicleCounts;
             }
