@@ -18,6 +18,11 @@ namespace Lexicon2024_Exercise5_Garage
             parkingSpots = new T[capacity];
         }
         public T[] GetVehiclesInGarage() { return parkingSpots; }
+        public void ParkVehicle(T vehicle, int position)
+        {
+            try { parkingSpots[position] = vehicle; }
+            catch { throw new Exception(); };
+        }
         public bool TryParkVehicle(T vehicle)
         {
             bool parkedFlag = false;

@@ -17,6 +17,9 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         // GetVehicleByColor() arr/list of Vehicle
         // GetVehiclesInGarage arr/list of Vehicle
         // GetEmptySlotsInGarage Integer
-        Dictionary<Type, int> VehiclesInGarage();
+        Dictionary<Type, int> GetDictOfVehicles();
+        public List<Vehicle> GetVehicles();
+
+        public Vehicle GetVehicle();
     }
 }

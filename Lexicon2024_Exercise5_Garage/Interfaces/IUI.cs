@@ -13,5 +13,6 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         int ParseInteger();
         public Vehicle RegisterNewVehicle();
         void ShowVehiclesInGarage(Dictionary<Type, int> vehicleCounts);
+        void ShowAllVehiclesAndDetails(List<Vehicle> vehicles);
     }
 }

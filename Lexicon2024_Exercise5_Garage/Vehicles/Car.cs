@@ -16,9 +16,7 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         }
         public Car(string fueltype, char[] registrationNumber, int wheels, int passangerLimit, Color color) : base(registrationNumber, wheels, passangerLimit, color)
         {
-
             Fueltype = fueltype;    
-
         }
     }
 }

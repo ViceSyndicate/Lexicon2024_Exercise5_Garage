@@ -18,16 +18,20 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
         {
 
         }
+
         public Vehicle(char[] registrationNumber, int wheels, int passangerLimit, Color color)
         {
-            for (int i = 0; i < registrationNumber.Length; i++)
-            {
-                Char.ToUpper(registrationNumber[i]);
-            }
-            this.registrationNumber = RegistrationNumber;
-            this.wheels = Wheels;
-            this.passangerLimit = PassengerLimit;
-            this.color = VehicleColor;
+            // ensure uppercase
+            string regString = new string(registrationNumber);
+
+            regString = regString.ToUpper();
+
+            registrationNumber = regString.ToArray();
+
+            RegistrationNumber = registrationNumber;
+            Wheels = wheels;
+            PassengerLimit = passangerLimit;
+            VehicleColor = color;
         }
 
         public char[] RegistrationNumber
@@ -37,7 +41,7 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             {
                 if (value.Count() > 8)
                 {
-                    throw new ArgumentException("Registration number needs to be 8 characters.");
+                    throw new ArgumentException("Registration number needs to be less than 8 characters.");
                 }
                 registrationNumber = value;
             }
@@ -47,8 +51,14 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             get { return wheels; }
             set
             {
-                if (value < 0) { throw new ArgumentException("PassengerLimit can't be a negative number."); }
-                wheels = value;
+                if (wheels < 0)
+                {
+                    wheels = 0;
+                }
+                else
+                {
+                    wheels = value;
+                }
             }
         }
         public int PassengerLimit
@@ -56,8 +66,14 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             get { return passangerLimit; }
             set
             {
-                if (value < 0) { throw new ArgumentException("PassengerLimit can't be a negative number."); }
-                passangerLimit = value;
+                if (passangerLimit < 0)
+                {
+                    passangerLimit = 0;
+                }
+                else
+                {
+                    passangerLimit = value;
+                }
             }
         }
         public Color VehicleColor
@@ -65,7 +81,15 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             get { return color; }
             set
             { color = value; }
+        }
+        public override string ToString()
+        {
+            string regNr = new string(RegistrationNumber);
 
+            return $"RegNr: {regNr} " +
+                $"Passanger Seats: {passangerLimit} " +
+            $"Wheels: {wheels} " +
+            $"Color: {color}";
         }
     }
     public enum Color

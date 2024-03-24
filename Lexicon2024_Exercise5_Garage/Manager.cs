@@ -1,13 +1,5 @@
 ﻿using Lexicon2024_Exercise5_Garage.Interfaces;
 using Lexicon2024_Exercise5_Garage.Vehicles;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Channels;
-using System.Threading.Tasks;
 
 namespace Lexicon2024_Exercise5_Garage
 {
@@ -29,40 +21,46 @@ namespace Lexicon2024_Exercise5_Garage
         public short AwaitMenuResult()
         {
             int uiResult = ui.ShowMainMenu();
-            short returnVal = 1;
-            switch(uiResult)
+            switch (uiResult)
             {
-                case 1: 
-                    Vehicle vehicle = ui.RegisterNewVehicle();
-                    bool success = garageHandler.TryParkVehicle(vehicle);
-                    if(success)
+                case 1:
+                    try
                     {
-                        // Call UI to print Added Vehicle Or just print it here...
-                        Console.WriteLine("Vehicle Parked!");
+                        Vehicle vehicle = ui.RegisterNewVehicle();
+                        bool success = garageHandler.TryParkVehicle(vehicle);
+                        if (success)
+                        {
+                            // Call UI to print Added Vehicle Or just print it here...
+                            Console.WriteLine("Vehicle Parked!");
+                        }
+                        else
+                        {
+                            // Call UI to print Failed to add Vehicle
+                            Console.WriteLine("Failed to park Vehicle!");
+                        }
                     }
-                    else
-                    {
-                        // Call UI to print Failed to add Vehicle
-                        Console.WriteLine("Failed to park Vehicle!");
-                    }
+                    catch (Exception ex) { Console.WriteLine(ex); }
+
+
                     // Check if RegNr already exists in garage. If it does: Abort.
                     // Add vehicle to Garage with GarageHandler.
                     break;
-                case 2: ; break;
-                case 3: ; break;
+                case 2:; break;
+                case 3:; break;
                 case 4: // List vehicles in garage
-                    Dictionary<Type, int> vehicleCounts = garageHandler.VehiclesInGarage();
+                    Dictionary<Type, int> vehicleCounts = garageHandler.GetDictOfVehicles();
                     ui.ShowVehiclesInGarage(vehicleCounts);
-                    
+
                     // send to UI for presentation.
                     ; break;
-                    case 5: TMockCar(); break;
-                case 8: ; break;
-                case 9: ; break;
-                case 0: returnVal = 0; break;
-                    default: break;
+                case 5: TMockCar(); break;
+                case 6: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
+                case 8:; break;
+                case 9:; break;
+                case 0:; break;
             }
-            return returnVal;
+            return 99; // I am aware magic variables are bad. 
+            // To stay in loop. if we return 0 we end loop.
         }
         // Creates a car.
         public void TMockCar()
