@@ -24,10 +24,10 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             {
                 Char.ToUpper(registrationNumber[i]);
             }
-            this.registrationNumber = registrationNumber;
-            this.wheels = wheels;
-            this.passangerLimit = passangerLimit;
-            this.color = color;
+            this.registrationNumber = RegistrationNumber;
+            this.wheels = Wheels;
+            this.passangerLimit = PassengerLimit;
+            this.color = VehicleColor;
         }
 
         public char[] RegistrationNumber

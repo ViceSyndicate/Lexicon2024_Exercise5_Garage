@@ -38,6 +38,8 @@ namespace Lexicon2024_Exercise5_Garage
         {
             throw new NotImplementedException();
         }
+
+        // Big. Car increases by 1 every time I run this...
         public Dictionary<Type, int> VehiclesInGarage()
         {
             Vehicle[] vehiclesInGarage = garage.GetVehiclesInGarage();
@@ -47,21 +49,24 @@ namespace Lexicon2024_Exercise5_Garage
             {
                 for (int i = 0; i < garage.Count(); i++)
                 {
-                    Type vehicleType = vehicle.GetType();
-                    if (vehicleCounts.ContainsKey(vehicleType))
+                    if(vehiclesInGarage[i] != null) // If Null. Ignore
                     {
-                        vehicleCounts[vehicleType]++;
-                    }
-                    else
-                    {
-                        vehicleCounts.Add(vehicleType, 1);
+                        Type vehicleType = vehiclesInGarage[i].GetType();
+                        if (vehicleCounts.ContainsKey(vehicleType))
+                        {
+                            vehicleCounts[vehicleType]++;
+                        }
+                        else
+                        {
+                            vehicleCounts.Add(vehicleType, 1);
+                        }
                     }
                 }
                 return vehicleCounts;
             }
             catch
             {
-                return vehicleCounts;
+                throw new Exception();
             }
         }
     }

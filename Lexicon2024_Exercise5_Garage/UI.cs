@@ -20,6 +20,7 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("x3. Search For Vehicle In Garage"); // Open sub meny for search parameters,
                                                                   // With LINQBlack Vehicles, 4 Wheels, Trucks, Red Vehicles
             Console.WriteLine("4. List Vehicles In Garage"); // List Vehicle type and how many of each. 
+            Console.WriteLine("5. Add Mock Car");
             Console.WriteLine("x8. Add Mock Vechiles To Garage");
             Console.WriteLine("x9. Create New Garage");
             Console.WriteLine("0. Exit Program");
@@ -32,6 +33,7 @@ namespace Lexicon2024_Exercise5_Garage
                 case "2": return 2; break;
                 case "3": return 3; break;
                 case "4": return 4; break;
+                case "5": return 5; break;
                 case "8": return 8; break;
                 case "9": return 9; break;
                     // int garageSize = ParseInteger();
@@ -44,7 +46,7 @@ namespace Lexicon2024_Exercise5_Garage
                     break;
             }
         }
-        // If I don't have IUI. it gives me an error. Why?
+
         public int ParseInteger()
         {
             string input = Console.ReadLine();
@@ -74,7 +76,7 @@ namespace Lexicon2024_Exercise5_Garage
 
             Console.WriteLine("1. Red");
             Console.WriteLine("2. Green");
-            Console.WriteLine("2. Blue");
+            Console.WriteLine("3. Blue");
             Console.WriteLine("4. White");
             Console.WriteLine("5. Black");
             Console.WriteLine("6. Other");
