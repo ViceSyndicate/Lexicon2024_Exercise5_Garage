@@ -21,9 +21,7 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("x3. Search For Vehicle In Garage"); // Open sub meny for search parameters,
                                                                    // With LINQBlack Vehicles, 4 Wheels, Trucks, Red Vehicles
             Console.WriteLine("4. List Vehicles In Garage"); // List Vehicle type and how many of each. 
-            Console.WriteLine("5. Add Mock Car");
             Console.WriteLine("6. List All Vehicles & Information.");
-            Console.WriteLine("x8. Add Mock Vechiles To Garage");
             Console.WriteLine("x9. Create New Garage");
             Console.WriteLine("0. Exit Program");
 
@@ -51,6 +49,18 @@ namespace Lexicon2024_Exercise5_Garage
                     return 0;
                     break;
             }
+        }
+
+        public char[] RemoveVehicle(char[] regNumbers)
+        {
+
+            for(int i = 0; i < regNumbers.Length; i++)
+            {
+                Console.WriteLine(regNumbers[i]);
+            }
+            string input = Console.ReadLine();
+            char[] regNrToDelete = input.ToCharArray();
+            return regNrToDelete;
         }
 
         public int ParseInteger()
@@ -124,7 +134,7 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("4. White");
             Console.WriteLine("5. Black");
             Console.WriteLine("6. Other");
-
+            input = Console.ReadLine();
             switch (input)
             {
                 case "1": color = Color.Red; break;

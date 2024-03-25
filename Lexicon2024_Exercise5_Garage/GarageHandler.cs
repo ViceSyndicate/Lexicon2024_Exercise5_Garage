@@ -38,7 +38,11 @@ namespace Lexicon2024_Exercise5_Garage
             garage.ParkVehicle(vehicle, firstEmptySpot);
             return true;
         }
-
+        public char[] GetRegistrationNumbers()
+        {
+            char[] regNrList = garage.GetRegNrs();
+            return regNrList;
+        }
         bool CheckDuplicateRegNr(char[] regNr)
         {
             Vehicle[] parkedVehicles = garage.GetVehiclesInGarage();
@@ -70,9 +74,9 @@ namespace Lexicon2024_Exercise5_Garage
             return -1;
         }
 
-        public bool RemoveVehicle()
+        public bool RemoveVehicle(char[] regNr)
         {
-            throw new NotImplementedException();
+            return garage.RemoveVehicle(regNr);
         }
 
         public void CreateNewGarage(int i)

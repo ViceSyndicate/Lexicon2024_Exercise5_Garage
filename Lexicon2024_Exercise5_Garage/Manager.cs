@@ -45,7 +45,12 @@ namespace Lexicon2024_Exercise5_Garage
                     // Check if RegNr already exists in garage. If it does: Abort.
                     // Add vehicle to Garage with GarageHandler.
                     break;
-                case 2:; break;
+                case 2: char[] regNrs = garageHandler.GetRegistrationNumbers();
+                    char[] regNrToRemove = ui.RemoveVehicle(regNrs);
+                    if (garageHandler.RemoveVehicle(regNrToRemove)) Console.WriteLine("Vehicle Removed!");
+                    else Console.WriteLine("Could not remove Vehicle!");
+
+                    break;
                 case 3:; break;
                 case 4: // List vehicles in garage
                     Dictionary<Type, int> vehicleCounts = garageHandler.GetDictOfVehicles();
@@ -53,7 +58,6 @@ namespace Lexicon2024_Exercise5_Garage
 
                     // send to UI for presentation.
                     ; break;
-                case 5: TMockCar(); break;
                 case 6: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
                 case 8:; break;
                 case 9:; break;

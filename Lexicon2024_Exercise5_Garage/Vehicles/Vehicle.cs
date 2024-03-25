@@ -82,6 +82,7 @@ namespace Lexicon2024_Exercise5_Garage.Vehicles
             set
             { color = value; }
         }
+        /**/
         public override string ToString()
         {
             string regNr = new string(RegistrationNumber);

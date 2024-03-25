@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Linq;
 
 namespace Lexicon2024_Exercise5_Garage
 {
@@ -58,6 +59,26 @@ namespace Lexicon2024_Exercise5_Garage
                 throw ex;
             }
             return parkedFlag;
+        }
+        public bool RemoveVehicle(char[] registrationNumber)
+        {
+            int index = Array.FindIndex(parkingSpots, v => v != null && v.RegistrationNumber.SequenceEqual(registrationNumber));
+            if (index == -1)
+            {
+                return false;
+            }
+            else
+            {
+                parkingSpots[index] = null;
+                return true;
+            }
+        }
+        public char[] GetRegNrs()
+        {
+            char[] regNrs = parkingSpots
+                .Where(v => v != null && v.RegistrationNumber != null)
+                .SelectMany(vehicle => vehicle.RegistrationNumber).ToArray();
+            return regNrs;
         }
         public IEnumerator<T> GetEnumerator()
         {
