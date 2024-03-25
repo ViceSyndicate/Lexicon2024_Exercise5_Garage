@@ -50,9 +50,10 @@ namespace Lexicon2024_Exercise5_Garage
             {
                 if (parkedVehicles[i] != null)
                 {
-                    if (regNr == parkedVehicles[i].RegistrationNumber)
+                    //if (regNr == parkedVehicles[i].RegistrationNumber)
+                    if(regNr.SequenceEqual(parkedVehicles[i].RegistrationNumber))
                     {
-                        return true; // Could extend to give an error message of some sort...
+                        return true;
                     }
                 }
             }

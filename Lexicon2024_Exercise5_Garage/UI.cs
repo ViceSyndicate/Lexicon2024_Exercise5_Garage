@@ -111,14 +111,15 @@ namespace Lexicon2024_Exercise5_Garage
             string regNrInput;
             Console.WriteLine("Enter Registration Number: ");
             regNrInput = Console.ReadLine();
-            // throw exception if 
+            regNr = regNrInput.ToCharArray();
+            // Check regNr in garage for duplicates...
+
             Console.WriteLine("enter how many wheels the vehicle has: ");
             wheels = ParseInteger();
             if(wheels == -1)
             {
                 throw new FormatException();
             }
-            regNr = regNrInput.ToCharArray();
 
             Console.WriteLine("Enter how many passenger spots: ");
             passangerLimit = ParseInteger();
@@ -145,7 +146,7 @@ namespace Lexicon2024_Exercise5_Garage
                 case "6": color = Color.Other; break;
                 default:  color = Color.Other; break;
             }
-
+            // I think the mistake is creating the car here. I should just return it.
             switch (vehicleType)
             {
                 case 1: vehicle = new Car(regNr, wheels, passangerLimit, color);break;
