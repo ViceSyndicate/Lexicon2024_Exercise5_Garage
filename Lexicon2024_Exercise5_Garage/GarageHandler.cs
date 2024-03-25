@@ -132,18 +132,32 @@ namespace Lexicon2024_Exercise5_Garage
             for (int i = 0; i < parkingSpots.Length; i++)
             {
                 var vehicle = parkingSpots[i];
-                if(vehicle != null && new string(vehicle.RegistrationNumber) == searchQuery)
+                if (vehicle != null && new string(vehicle.RegistrationNumber) == searchQuery)
                 {
                     matchingVehicle.Add(i, vehicle);
                 }
             }
             return matchingVehicle;
         }
+
         public Dictionary<int, Vehicle> GetVehiclesyNrOfWheels(string searchQuery)
         {
             Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();
-            throw new NotImplementedException();
+            int nrOfWheelsInQuery;
+            if (int.TryParse(searchQuery, out nrOfWheelsInQuery))
+            {
+                var vehiclesWithIndex = garage.GetVehiclesInGarage()
+                    .Select((v, index) => new { Vehicle = v, Index = index })
+                    .Where(v => v.Vehicle != null && v.Vehicle.Wheels == nrOfWheelsInQuery);
+
+                foreach (var vehicleWithIndex in vehiclesWithIndex)
+                {
+                    matchingVehicles.Add(vehicleWithIndex.Index, vehicleWithIndex.Vehicle);
+                }
+            }
+            return matchingVehicles;
         }
+
         public Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery)
         {
             Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();

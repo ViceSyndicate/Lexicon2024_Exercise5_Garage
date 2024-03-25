@@ -197,24 +197,28 @@ namespace Lexicon2024_Exercise5_Garage
                     return 0; break;
             }
         }
+
         public void PresentSearchResult(Dictionary<int, Vehicle> searchResult)
         {
             if (searchResult == null || searchResult.Count == 0)
             {
                 Console.WriteLine("No results found.");
             }
+            Console.Write("Vehicle match at position(s) ");
             foreach (var vehicle in searchResult)
             {
-                Console.WriteLine("Vehicle matched at position " + vehicle.Key);
+                Console.Write(vehicle.Key + ", ");
+            }
+            Console.WriteLine();
+            foreach (var vehicle in searchResult)
+            {
                 Console.Write("Vehicle information: ");
                 Console.WriteLine($"{vehicle.Value}");
             }
-
         }
         public string GetSearchQuery()
         {
             Console.Write("Enter search query:");
-
             return Console.ReadLine();
         }
     }
