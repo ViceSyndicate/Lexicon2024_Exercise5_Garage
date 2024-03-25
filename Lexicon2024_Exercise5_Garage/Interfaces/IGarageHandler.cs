@@ -19,7 +19,7 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         // GetEmptySlotsInGarage Integer
         Dictionary<Type, int> GetDictOfVehicles();
         public List<Vehicle> GetVehicles();
-        char[] GetRegistrationNumbers();
+        List<char[]> GetRegistrationNumbers();
         bool RemoveVehicle(char[] regNr);
         public Vehicle GetVehicle();
     }

@@ -14,6 +14,6 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         public Vehicle RegisterNewVehicle();
         void ShowVehiclesInGarage(Dictionary<Type, int> vehicleCounts);
         void ShowAllVehiclesAndDetails(List<Vehicle> vehicles);
-        char[] RemoveVehicle(char[] regNumbers);
+        char[] RemoveVehicle(List<char[]> regNumbers);
     }
 }

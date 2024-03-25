@@ -73,12 +73,13 @@ namespace Lexicon2024_Exercise5_Garage
                 return true;
             }
         }
-        public char[] GetRegNrs()
+        public List<char[]> GetRegNrs()
         {
-            char[] regNrs = parkingSpots
+            List<char[]> regNrsList = parkingSpots
                 .Where(v => v != null && v.RegistrationNumber != null)
-                .SelectMany(vehicle => vehicle.RegistrationNumber).ToArray();
-            return regNrs;
+                .Select(vehicle => vehicle.RegistrationNumber)
+                .ToList();
+            return regNrsList;
         }
         public IEnumerator<T> GetEnumerator()
         {

@@ -51,12 +51,16 @@ namespace Lexicon2024_Exercise5_Garage
             }
         }
 
-        public char[] RemoveVehicle(char[] regNumbers)
+        public char[] RemoveVehicle(List<char[]> regNumbers)
         {
-
-            for(int i = 0; i < regNumbers.Length; i++)
+            Console.WriteLine("RegistrationNumbers In the Garage.");
+            foreach (var regNumber in regNumbers)
             {
-                Console.WriteLine(regNumbers[i]);
+                foreach(char c in regNumber)
+                {
+                    Console.Write(c);
+                }
+                Console.WriteLine();
             }
             string input = Console.ReadLine();
             char[] regNrToDelete = input.ToCharArray();

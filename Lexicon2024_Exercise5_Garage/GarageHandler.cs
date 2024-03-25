@@ -38,9 +38,9 @@ namespace Lexicon2024_Exercise5_Garage
             garage.ParkVehicle(vehicle, firstEmptySpot);
             return true;
         }
-        public char[] GetRegistrationNumbers()
+        public List<char[]> GetRegistrationNumbers()
         {
-            char[] regNrList = garage.GetRegNrs();
+            List<char[]> regNrList = garage.GetRegNrs();
             return regNrList;
         }
         bool CheckDuplicateRegNr(char[] regNr)
