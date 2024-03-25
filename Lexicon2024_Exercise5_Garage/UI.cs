@@ -17,11 +17,10 @@ namespace Lexicon2024_Exercise5_Garage
         {
             Console.WriteLine("-------------------------");
             Console.WriteLine("1. Register New Vehicle");
-            Console.WriteLine("x2. Remove Vehicle from Garage");
+            Console.WriteLine("2. Remove Vehicle from Garage");
             Console.WriteLine("x3. Search For Vehicle In Garage"); // Open sub meny for search parameters,
-                                                                   // With LINQBlack Vehicles, 4 Wheels, Trucks, Red Vehicles
             Console.WriteLine("4. List Vehicles In Garage"); // List Vehicle type and how many of each. 
-            Console.WriteLine("6. List All Vehicles & Information.");
+            Console.WriteLine("5. List All Vehicles & Information.");
             Console.WriteLine("x9. Create New Garage");
             Console.WriteLine("0. Exit Program");
 
@@ -177,6 +176,16 @@ namespace Lexicon2024_Exercise5_Garage
             {
                 Console.WriteLine($"{vehicle.Key.Name} : {vehicle.Value}");
             }
+        }
+        public void SearchForVehicleMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("1. Search by Registration Number");
+            Console.WriteLine("2. Search by nr of Wheels");
+            Console.WriteLine("3. Search by Passanger Spots");
+            Console.WriteLine("4. Search by Color");
+            string input = Console.ReadLine();
+
         }
     }
 }

@@ -52,14 +52,16 @@ namespace Lexicon2024_Exercise5_Garage
                     else Console.WriteLine("Could not remove Vehicle!");
 
                     break;
-                case 3:; break;
+                case 3: ui.SearchForVehicleMenu(); 
+                    break;
                 case 4: // List vehicles in garage
                     Dictionary<Type, int> vehicleCounts = garageHandler.GetDictOfVehicles();
                     ui.ShowVehiclesInGarage(vehicleCounts);
 
                     // send to UI for presentation.
                     ; break;
-                case 6: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
+                case 5: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
+                case 6:; break;
                 case 8:; break;
                 case 9:; break;
                 case 0:; break;
