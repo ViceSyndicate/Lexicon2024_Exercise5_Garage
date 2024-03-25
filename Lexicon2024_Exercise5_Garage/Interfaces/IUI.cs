@@ -17,5 +17,6 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         char[] RemoveVehicle(List<char[]> regNumbers);
         int SearchForVehicleMenu();
         public string GetSearchQuery();
+        void PresentSearchResult(Dictionary<int, Vehicle> searchResult);
     }
 }

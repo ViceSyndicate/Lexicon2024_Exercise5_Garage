@@ -58,16 +58,20 @@ namespace Lexicon2024_Exercise5_Garage
                     switch(searchSelection)
                     {
                         case 1: 
-                            results = garageHandler.GetVehiclesByRegNr(searchQuery); 
+                            results = garageHandler.GetVehicleByRegNr(searchQuery);
+                            ui.PresentSearchResult(results);
                             break; //Registration Number
                         case 2:
                             results = garageHandler.GetVehiclesyNrOfWheels(searchQuery);
+                            ui.PresentSearchResult(results);
                             break; // nr of Wheels
                         case 3:
                             results = garageHandler.GetVehiclesByPassengerSpots(searchQuery);
+                            ui.PresentSearchResult(results);
                             break; // PassengerSpots
                         case 4:
                             results = garageHandler.GetVehiclesByColor(searchQuery);
+                            ui.PresentSearchResult(results);
                             break; // Color
                         default: 
                             break;

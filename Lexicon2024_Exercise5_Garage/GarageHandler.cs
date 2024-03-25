@@ -124,20 +124,34 @@ namespace Lexicon2024_Exercise5_Garage
                 throw new Exception();
             }
         }
-        Dictionary<int, Vehicle> GetVehiclesByRegNr(string searchQuery)
+
+        public Dictionary<int, Vehicle> GetVehicleByRegNr(string searchQuery)
         {
+            Dictionary<int, Vehicle> matchingVehicle = new Dictionary<int, Vehicle>();
+            var parkingSpots = garage.GetVehiclesInGarage();
+            for (int i = 0; i < parkingSpots.Length; i++)
+            {
+                var vehicle = parkingSpots[i];
+                if(vehicle != null && new string(vehicle.RegistrationNumber) == searchQuery)
+                {
+                    matchingVehicle.Add(i, vehicle);
+                }
+            }
+            return matchingVehicle;
+        }
+        public Dictionary<int, Vehicle> GetVehiclesyNrOfWheels(string searchQuery)
+        {
+            Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();
             throw new NotImplementedException();
         }
-        Dictionary<int, Vehicle> GetVehiclesyNrOfWheels(string searchQuery)
+        public Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery)
         {
+            Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();
             throw new NotImplementedException();
         }
-        Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery)
+        public Dictionary<int, Vehicle> GetVehiclesByColor(string searchQuery)
         {
-            throw new NotImplementedException();
-        }
-        Dictionary<int, Vehicle> GetVehiclesByColor(string searchQuery)
-        {
+            Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();
             throw new NotImplementedException();
         }
     }

@@ -184,7 +184,8 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("2. Search by nr of Wheels");
             Console.WriteLine("3. Search by Passenger Spots");
             Console.WriteLine("4. Search by Color");
-            string input = Console.ReadLine();
+            Console.WriteLine();
+            string input = Console.ReadLine()!;
             switch (input)
             {
                 case "1": return 1; break;
@@ -196,8 +197,24 @@ namespace Lexicon2024_Exercise5_Garage
                     return 0; break;
             }
         }
+        public void PresentSearchResult(Dictionary<int, Vehicle> searchResult)
+        {
+            if (searchResult == null || searchResult.Count == 0)
+            {
+                Console.WriteLine("No results found.");
+            }
+            foreach (var vehicle in searchResult)
+            {
+                Console.WriteLine("Vehicle matched at position " + vehicle.Key);
+                Console.Write("Vehicle information: ");
+                Console.WriteLine($"{vehicle.Value}");
+            }
+
+        }
         public string GetSearchQuery()
         {
+            Console.Write("Enter search query:");
+
             return Console.ReadLine();
         }
     }

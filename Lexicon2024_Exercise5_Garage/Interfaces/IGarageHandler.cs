@@ -22,7 +22,7 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         List<char[]> GetRegistrationNumbers();
         bool RemoveVehicle(char[] regNr);
         public Vehicle GetVehicle();
-        Dictionary<int, Vehicle> GetVehiclesByRegNr(string searchQuery);
+        Dictionary<int, Vehicle> GetVehicleByRegNr(string searchQuery);
         Dictionary<int, Vehicle> GetVehiclesyNrOfWheels(string searchQuery);
         Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery);
         Dictionary<int, Vehicle> GetVehiclesByColor(string searchQuery);
