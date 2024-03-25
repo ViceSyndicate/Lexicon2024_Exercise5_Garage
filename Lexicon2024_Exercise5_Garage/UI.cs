@@ -55,7 +55,7 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("RegistrationNumbers In the Garage.");
             foreach (var regNumber in regNumbers)
             {
-                foreach(char c in regNumber)
+                foreach (char c in regNumber)
                 {
                     Console.Write(c);
                 }
@@ -119,7 +119,7 @@ namespace Lexicon2024_Exercise5_Garage
 
             Console.WriteLine("enter how many wheels the vehicle has: ");
             wheels = ParseInteger();
-            if(wheels == -1)
+            if (wheels == -1)
             {
                 throw new FormatException();
             }
@@ -147,17 +147,17 @@ namespace Lexicon2024_Exercise5_Garage
                 case "4": color = Color.White; break;
                 case "5": color = Color.Black; break;
                 case "6": color = Color.Other; break;
-                default:  color = Color.Other; break;
+                default: color = Color.Other; break;
             }
             // I think the mistake is creating the car here. I should just return it.
             switch (vehicleType)
             {
-                case 1: vehicle = new Car(regNr, wheels, passangerLimit, color);break;
+                case 1: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
                 case 2: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
                 case 3: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
                 case 4: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
                 case 5: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
-                default : vehicle = new Vehicle(regNr, wheels, passangerLimit, color); break;
+                default: vehicle = new Vehicle(regNr, wheels, passangerLimit, color); break;
             }
             return vehicle;
         }
@@ -177,15 +177,28 @@ namespace Lexicon2024_Exercise5_Garage
                 Console.WriteLine($"{vehicle.Key.Name} : {vehicle.Value}");
             }
         }
-        public void SearchForVehicleMenu()
+        public int SearchForVehicleMenu()
         {
             Console.Clear();
             Console.WriteLine("1. Search by Registration Number");
             Console.WriteLine("2. Search by nr of Wheels");
-            Console.WriteLine("3. Search by Passanger Spots");
+            Console.WriteLine("3. Search by Passenger Spots");
             Console.WriteLine("4. Search by Color");
             string input = Console.ReadLine();
-
+            switch (input)
+            {
+                case "1": return 1; break;
+                case "2": return 2; break;
+                case "3": return 3; break;
+                case "4": return 4; break;
+                default:
+                    Console.WriteLine("Invalid Input");
+                    return 0; break;
+            }
+        }
+        public string GetSearchQuery()
+        {
+            return Console.ReadLine();
         }
     }
 }

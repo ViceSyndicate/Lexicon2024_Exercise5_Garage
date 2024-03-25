@@ -51,7 +51,7 @@ namespace Lexicon2024_Exercise5_Garage
                 if (parkedVehicles[i] != null)
                 {
                     //if (regNr == parkedVehicles[i].RegistrationNumber)
-                    if(regNr.SequenceEqual(parkedVehicles[i].RegistrationNumber))
+                    if (regNr.SequenceEqual(parkedVehicles[i].RegistrationNumber))
                     {
                         return true;
                     }
@@ -123,6 +123,22 @@ namespace Lexicon2024_Exercise5_Garage
             {
                 throw new Exception();
             }
+        }
+        Dictionary<int, Vehicle> GetVehiclesByRegNr(string searchQuery)
+        {
+            throw new NotImplementedException();
+        }
+        Dictionary<int, Vehicle> GetVehiclesyNrOfWheels(string searchQuery)
+        {
+            throw new NotImplementedException();
+        }
+        Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery)
+        {
+            throw new NotImplementedException();
+        }
+        Dictionary<int, Vehicle> GetVehiclesByColor(string searchQuery)
+        {
+            throw new NotImplementedException();
         }
     }
 }
