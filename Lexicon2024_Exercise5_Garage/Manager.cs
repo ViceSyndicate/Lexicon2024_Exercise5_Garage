@@ -87,7 +87,15 @@ namespace Lexicon2024_Exercise5_Garage
                     ; break;
                 case 5: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
                 case 6:; break;
-                case 8:; break; // 8. Add Mock Vehicles 
+                case 8:
+                    if (garageHandler.AddMockVehiclesToGarage()){
+                        Console.WriteLine("Added Mock Vehicles!");
+                    } else
+                    {
+                        Console.WriteLine("Failed to add Mock Vehicles. \n" +
+                            "Maybe you already added them or there are Registration Number Duplicates?");
+                    };
+                    break; // 8. Add Mock Vehicles 
                 case 9:; break;
                 case 0:; break;
             }

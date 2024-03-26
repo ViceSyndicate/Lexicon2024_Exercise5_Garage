@@ -1,5 +1,6 @@
 ﻿using Lexicon2024_Exercise5_Garage.Vehicles;
 using Lexicon2024_Exercise5_Garage.Interfaces;
+using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -189,28 +190,35 @@ namespace Lexicon2024_Exercise5_Garage
             }
             return matchingVehicles;
         }
-        
-        //public bool AddMockVehiclesToGarage()
-        //{
-        //    int firstEmptySpot = GetFirstEmptySpot();
 
-        //    // There were no empty parking spots.
-        //    if (firstEmptySpot == -1)
-        //    {
-        //        return false;
-        //    }
-        //    // There are duplicate regNrs, return false. 
-        //    if (CheckDuplicateRegNr(Vehicles.RegistrationNumber))
-        //    {
-        //        return false;
-        //    }
+        public bool AddMockVehiclesToGarage()
+        {
+            Vehicle mockOne = new Motorcycle(['1', '1', '1'], 2, 1, Color.White);
+            Vehicle mockTwo = new Car(['2', '2', '1'], 4, 5, Color.Black);
+            Vehicle mockThress = new Boat(['8', '0', '8'], 2, 1, Color.Blue);
+            Vehicle mockFour = new Airplane(['7', '7', '7'], 3, 6, Color.Red);
 
-        //    // Try to park.
+            List<Vehicle> mockList = new List<Vehicle>();
+            mockList.Add(mockOne);
+            mockList.Add(mockTwo);
+            mockList.Add(mockThress);
+            mockList.Add(mockFour);
 
-        //    // I realise i've made TryParkVehicle().
-        //    // That's redundant now I guess.
-        //    garage.ParkVehicle(vehicle, firstEmptySpot);
-        //    return true;
-        //}
+            foreach(Vehicle vehicle in mockList)
+            {
+                // There were no empty parking spots.
+                if (GetFirstEmptySpot() == -1)
+                {
+                    return false;
+                }
+                // There are duplicate regNrs, return false. 
+                if (CheckDuplicateRegNr(vehicle.RegistrationNumber))
+                {
+                    return false;
+                }
+                garage.ParkVehicle(vehicle, GetFirstEmptySpot());
+            }
+            return true;
+        }
     }
 }

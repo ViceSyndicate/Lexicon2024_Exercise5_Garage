@@ -26,5 +26,6 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         Dictionary<int, Vehicle> GetVehiclesyNrOfWheels(string searchQuery);
         Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery);
         Dictionary<int, Vehicle> GetVehiclesByColor(Color colorQuery);
+        bool AddMockVehiclesToGarage();
     }
 }
