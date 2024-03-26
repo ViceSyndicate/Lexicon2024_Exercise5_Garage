@@ -20,8 +20,9 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("1. Register New Vehicle");
             Console.WriteLine("2. Remove Vehicle from Garage");
             Console.WriteLine("3. Search For Vehicle In Garage"); // Open sub meny for search parameters,
-            Console.WriteLine("4. List Vehicles In Garage"); // List Vehicle type and how many of each. 
+            Console.WriteLine("4. List Nr of Vehicle Types"); // List Vehicle type and how many of each. 
             Console.WriteLine("5. List All Vehicles & Information.");
+            Console.WriteLine("8. Add Mock Vehicles");
             Console.WriteLine("x9. Create New Garage");
             Console.WriteLine("0. Exit Program");
 
@@ -34,7 +35,6 @@ namespace Lexicon2024_Exercise5_Garage
                 case "3": return 3; break;
                 case "4": return 4; break;
                 case "5": return 5; break;
-                case "6": return 6; break;
                 case "8": return 8; break;
                 case "9":
                     return 9; break;
@@ -150,14 +150,15 @@ namespace Lexicon2024_Exercise5_Garage
                 case "6": color = Vehicles.Color.Other; break;
                 default: color = Vehicles.Color.Other; break;
             }
-            // I think the mistake is creating the car here. I should just return it.
+            
+            // Remember to set individual vehicle type properties later...
             switch (vehicleType)
             {
                 case 1: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
-                case 2: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
-                case 3: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
-                case 4: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
-                case 5: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
+                case 2: vehicle = new Motorcycle(regNr, wheels, passangerLimit, color); break;
+                case 3: vehicle = new Bus(regNr, wheels, passangerLimit, color); break;
+                case 4: vehicle = new Boat(regNr, wheels, passangerLimit, color); break;
+                case 5: vehicle = new Airplane(regNr, wheels, passangerLimit, color); break;
                 default: vehicle = new Vehicle(regNr, wheels, passangerLimit, color); break;
             }
             return vehicle;

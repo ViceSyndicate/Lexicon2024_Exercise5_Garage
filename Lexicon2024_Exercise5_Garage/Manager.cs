@@ -84,12 +84,10 @@ namespace Lexicon2024_Exercise5_Garage
                 case 4: // List vehicles in garage
                     Dictionary<Type, int> vehicleCounts = garageHandler.GetDictOfVehicles();
                     ui.ShowVehiclesInGarage(vehicleCounts);
-
-                    // send to UI for presentation.
                     ; break;
                 case 5: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
                 case 6:; break;
-                case 8:; break;
+                case 8:; break; // 8. Add Mock Vehicles 
                 case 9:; break;
                 case 0:; break;
             }

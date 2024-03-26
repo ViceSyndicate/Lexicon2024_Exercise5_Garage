@@ -189,5 +189,28 @@ namespace Lexicon2024_Exercise5_Garage
             }
             return matchingVehicles;
         }
+        
+        //public bool AddMockVehiclesToGarage()
+        //{
+        //    int firstEmptySpot = GetFirstEmptySpot();
+
+        //    // There were no empty parking spots.
+        //    if (firstEmptySpot == -1)
+        //    {
+        //        return false;
+        //    }
+        //    // There are duplicate regNrs, return false. 
+        //    if (CheckDuplicateRegNr(Vehicles.RegistrationNumber))
+        //    {
+        //        return false;
+        //    }
+
+        //    // Try to park.
+
+        //    // I realise i've made TryParkVehicle().
+        //    // That's redundant now I guess.
+        //    garage.ParkVehicle(vehicle, firstEmptySpot);
+        //    return true;
+        //}
     }
 }
