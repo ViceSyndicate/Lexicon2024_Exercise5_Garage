@@ -161,12 +161,33 @@ namespace Lexicon2024_Exercise5_Garage
         public Dictionary<int, Vehicle> GetVehiclesByPassengerSpots(string searchQuery)
         {
             Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();
-            throw new NotImplementedException();
+            int nrOfSeatsInQuery;
+            if (int.TryParse(searchQuery, out nrOfSeatsInQuery))
+            {
+                var vehiclesWithIndex = garage.GetVehiclesInGarage()
+                    .Select((v, index) => new { Vehicle = v, Index = index })
+                    .Where(v => v.Vehicle != null && v.Vehicle.PassengerLimit == nrOfSeatsInQuery);
+
+                foreach (var vehicleWithIndex in vehiclesWithIndex)
+                {
+                    matchingVehicles.Add(vehicleWithIndex.Index, vehicleWithIndex.Vehicle);
+                }
+            }
+            return matchingVehicles;
         }
-        public Dictionary<int, Vehicle> GetVehiclesByColor(string searchQuery)
+        public Dictionary<int, Vehicle> GetVehiclesByColor(Color colorQuery)
         {
             Dictionary<int, Vehicle> matchingVehicles = new Dictionary<int, Vehicle>();
-            throw new NotImplementedException();
+
+            var vehiclesWithIndex = garage.GetVehiclesInGarage()
+                .Select((v, index) => new { Vehicle = v, Index = index })
+                .Where(v => v.Vehicle != null && v.Vehicle.VehicleColor == colorQuery);
+
+            foreach (var vehicleWithIndex in vehiclesWithIndex)
+            {
+                matchingVehicles.Add(vehicleWithIndex.Index, vehicleWithIndex.Vehicle);
+            }
+            return matchingVehicles;
         }
     }
 }

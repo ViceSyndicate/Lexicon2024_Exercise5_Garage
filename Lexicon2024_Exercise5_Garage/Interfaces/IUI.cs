@@ -18,5 +18,6 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
         int SearchForVehicleMenu();
         public string GetSearchQuery();
         void PresentSearchResult(Dictionary<int, Vehicle> searchResult);
+        Color GetColor();
     }
 }

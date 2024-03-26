@@ -53,24 +53,28 @@ namespace Lexicon2024_Exercise5_Garage
 
                     break;
                 case 3: int searchSelection = ui.SearchForVehicleMenu();
-                    string searchQuery = ui.GetSearchQuery();
+                    string searchQuery;
                     Dictionary<int, Vehicle> results;
                     switch(searchSelection)
                     {
-                        case 1: 
+                        case 1:
+                            searchQuery = ui.GetSearchQuery();
                             results = garageHandler.GetVehicleByRegNr(searchQuery);
                             ui.PresentSearchResult(results);
                             break; //Registration Number
                         case 2:
+                            searchQuery = ui.GetSearchQuery();
                             results = garageHandler.GetVehiclesyNrOfWheels(searchQuery);
                             ui.PresentSearchResult(results);
                             break; // nr of Wheels
                         case 3:
+                            searchQuery = ui.GetSearchQuery();
                             results = garageHandler.GetVehiclesByPassengerSpots(searchQuery);
                             ui.PresentSearchResult(results);
                             break; // PassengerSpots
                         case 4:
-                            results = garageHandler.GetVehiclesByColor(searchQuery);
+                            Color color = ui.GetColor();
+                            results = garageHandler.GetVehiclesByColor(color);
                             ui.PresentSearchResult(results);
                             break; // Color
                         default: 
