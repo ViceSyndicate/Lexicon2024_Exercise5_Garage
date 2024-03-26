@@ -14,6 +14,21 @@ namespace Lexicon2024_Exercise5_Garage
     {
         public UI() { }
 
+        public int SetGarageSize()
+        {
+            int value = 0;
+            while (value < 1)
+            {
+                Console.Write("Set size of Garage: ");
+                string input = Console.ReadLine()!;
+                if (int.TryParse(input, out value) == false)
+                {
+                    Console.WriteLine("Failed to read input!");
+                }
+            }
+            return value;
+        }
+
         public int ShowMainMenu()
         {
             Console.WriteLine("-------------------------");
@@ -23,7 +38,7 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("4. List Nr of Vehicle Types"); // List Vehicle type and how many of each. 
             Console.WriteLine("5. List All Vehicles & Information.");
             Console.WriteLine("8. Add Mock Vehicles");
-            Console.WriteLine("x9. Create New Garage");
+            Console.WriteLine("9. Create New Garage");
             Console.WriteLine("0. Exit Program");
 
             string input;
@@ -150,7 +165,7 @@ namespace Lexicon2024_Exercise5_Garage
                 case "6": color = Vehicles.Color.Other; break;
                 default: color = Vehicles.Color.Other; break;
             }
-            
+
             // Remember to set individual vehicle type properties later...
             switch (vehicleType)
             {

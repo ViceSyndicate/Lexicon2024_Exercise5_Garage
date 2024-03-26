@@ -10,7 +10,8 @@ namespace Lexicon2024_Exercise5_Garage
         public Manager()
         {
             ui = new UI();
-            garageHandler = new GarageHandler(32);
+            int garageSize = ui.SetGarageSize();
+            garageHandler = new GarageHandler(garageSize);
 
             short menuResult = AwaitMenuResult();
             while (menuResult != 0)
@@ -18,6 +19,7 @@ namespace Lexicon2024_Exercise5_Garage
                 menuResult = AwaitMenuResult();
             }
         }
+
         public short AwaitMenuResult()
         {
             int uiResult = ui.ShowMainMenu();
@@ -96,7 +98,7 @@ namespace Lexicon2024_Exercise5_Garage
                             "Maybe you already added them or there are Registration Number Duplicates?");
                     };
                     break; // 8. Add Mock Vehicles 
-                case 9:; break;
+                case 9: garageHandler = new GarageHandler(ui.SetGarageSize()); break;
                 case 0:; break;
             }
             return 99; // I am aware magic variables are bad. 

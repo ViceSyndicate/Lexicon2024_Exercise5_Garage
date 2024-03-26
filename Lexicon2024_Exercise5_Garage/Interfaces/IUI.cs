@@ -9,6 +9,7 @@ namespace Lexicon2024_Exercise5_Garage.Interfaces
 {
     public interface IUI
     {
+        int SetGarageSize();
         int ShowMainMenu();
         int ParseInteger();
         public Vehicle RegisterNewVehicle();
