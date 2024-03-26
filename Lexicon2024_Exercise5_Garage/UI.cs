@@ -239,7 +239,7 @@ namespace Lexicon2024_Exercise5_Garage
         public string GetSearchQuery()
         {
             Console.Write("Enter search query:");
-            return Console.ReadLine()!;
+            return Console.ReadLine()!.ToUpper();
         }
         public Vehicles.Color GetColor()
         {
