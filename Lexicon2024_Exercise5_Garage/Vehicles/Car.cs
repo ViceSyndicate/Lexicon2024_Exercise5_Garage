@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lexicon2024_Exercise5_Garage.Vehicles
 {
-    internal class Car : Vehicle
+    public class Car : Vehicle
     {
         public string Fueltype { get; set; }
         public Car(char[] registrationNumber, int wheels, int passangerLimit, Color color) : base(registrationNumber, wheels, passangerLimit, color)

@@ -1,17 +1,12 @@
-﻿using Lexicon2024_Exercise5_Garage.Vehicles;
-using Lexicon2024_Exercise5_Garage.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Lexicon2024_Exercise5_Garage.Interfaces;
+using Lexicon2024_Exercise5_Garage.Vehicles;
 using System.Collections;
-using System.Linq;
 
 namespace Lexicon2024_Exercise5_Garage
 {
     // where T : Vehicle,
-    internal class Garage<T> : IEnumerable<T>, IGarage where T : Vehicle
+    // Made it public so I can run tests on it...
+    public class Garage<T> : IEnumerable<T>, IGarage where T : Vehicle
     {
         private T[] parkingSpots;
         public Garage(int capacity)
