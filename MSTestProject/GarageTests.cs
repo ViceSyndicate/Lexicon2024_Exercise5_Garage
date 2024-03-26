@@ -17,9 +17,11 @@ namespace MSTestProject
         [TestMethod]
         public void TestParkVehicle()
         {
+            // Arrange
             var garage = new Lexicon2024_Exercise5_Garage.Garage<Vehicle>(4);
             var car = new Car("AbC123".ToCharArray(), 4, 5, Color.Red);
 
+            // Act
             garage.ParkVehicle(car, position: 0);
 
             // Assert

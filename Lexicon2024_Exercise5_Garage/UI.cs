@@ -169,11 +169,68 @@ namespace Lexicon2024_Exercise5_Garage
             // Remember to set individual vehicle type properties later...
             switch (vehicleType)
             {
-                case 1: vehicle = new Car(regNr, wheels, passangerLimit, color); break;
-                case 2: vehicle = new Motorcycle(regNr, wheels, passangerLimit, color); break;
-                case 3: vehicle = new Bus(regNr, wheels, passangerLimit, color); break;
-                case 4: vehicle = new Boat(regNr, wheels, passangerLimit, color); break;
-                case 5: vehicle = new Airplane(regNr, wheels, passangerLimit, color); break;
+                case 1:
+                    Console.Write("Enter cars fueltype: ");
+                    string fuelType = Console.ReadLine();
+                    vehicle = new Car(fuelType, regNr, wheels, passangerLimit, color);
+                    break;
+                case 2:
+                    Console.Write("Enter Cylinder Volume: ");
+                    int cylinderVolume;
+                    if (int.TryParse(Console.ReadLine(), out cylinderVolume))
+                    {
+                        vehicle = new Motorcycle(cylinderVolume, regNr, wheels, passangerLimit, color);
+                    } else
+                    {
+                        Console.WriteLine("Failed to parse Cylinder Volume to Integer. \n" +
+                            "Creating Motorcycle without it.");
+                        vehicle = new Motorcycle(regNr, wheels, passangerLimit, color);
+                    }
+
+                    break;
+                case 3:
+
+                    Console.Write("Enter Standing Spots on the buss: ");
+                    int standingSpots;
+                    if (int.TryParse(Console.ReadLine(), out standingSpots))
+                    {
+                        vehicle = new Bus(standingSpots, regNr, wheels, passangerLimit, color);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to parse Standing Spots to Integer. \n" +
+                            "Creating Buss without it.");
+                        vehicle = new Bus(regNr, wheels, passangerLimit, color);
+                    }
+                    break;
+                case 4:
+                    Console.Write("Enter Nr of Engines on the Boat: ");
+                    int nrOfEngines;
+                    if (int.TryParse(Console.ReadLine(), out nrOfEngines))
+                    {
+                        vehicle = new Boat(nrOfEngines, regNr, wheels, passangerLimit, color);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to parse Number to Integer. \n" +
+                            "Creating Boat without Engines.");
+                        vehicle = new Boat(regNr, wheels, passangerLimit, color);
+                    } 
+                    break;
+                case 5:
+                    Console.Write("Enter Wingspan of Plane: ");
+                    int wingSpan;
+                    if (int.TryParse(Console.ReadLine(), out wingSpan))
+                    {
+                        vehicle = new Boat(wingSpan, regNr, wheels, passangerLimit, color);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to parse Number to Integer. \n" +
+                            "Creating Airplane without Wingspan.");
+                        vehicle = new Airplane(regNr, wheels, passangerLimit, color);
+                    }
+                    break;
                 default: vehicle = new Vehicle(regNr, wheels, passangerLimit, color); break;
             }
             return vehicle;
