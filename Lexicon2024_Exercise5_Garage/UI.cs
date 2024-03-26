@@ -38,7 +38,7 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("4. List Nr of Vehicle Types"); // List Vehicle type and how many of each. 
             Console.WriteLine("5. List All Vehicles & Information.");
             Console.WriteLine("8. Add Mock Vehicles");
-            Console.WriteLine("9. Create New Garage");
+            Console.WriteLine("9. Create New Garage - WARNING Deletes Current Garage.");
             Console.WriteLine("0. Exit Program");
 
             string input;
