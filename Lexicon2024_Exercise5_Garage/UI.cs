@@ -39,7 +39,9 @@ namespace Lexicon2024_Exercise5_Garage
             Console.WriteLine("5. List All Vehicles & Information.");
             Console.WriteLine("8. Add Mock Vehicles");
             Console.WriteLine("9. Create New Garage - WARNING Deletes Current Garage.");
-            Console.WriteLine("0. Exit Program");
+            Console.WriteLine("0. Exit Program\n");
+            Console.WriteLine("11. Save Garage to Json");
+            Console.WriteLine("12. Load Garage as Json");
 
             string input;
             input = Console.ReadLine()!;
@@ -59,6 +61,8 @@ namespace Lexicon2024_Exercise5_Garage
                     Environment.Exit(0);
                     return 0;
                     break;
+                case "11": return 11; break;
+                case "12": return 12; break;
                 default:
                     Console.WriteLine("Please enter a valid input: 1, 2, 3, 4, 8, 9 or 0.");
                     return 0;

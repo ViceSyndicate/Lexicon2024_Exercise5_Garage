@@ -54,10 +54,11 @@ namespace Lexicon2024_Exercise5_Garage
                     else Console.WriteLine("Could not remove Vehicle!");
 
                     break;
-                case 3: int searchSelection = ui.SearchForVehicleMenu();
+                case 3:
+                    int searchSelection = ui.SearchForVehicleMenu();
                     string searchQuery;
                     Dictionary<int, Vehicle> results;
-                    switch(searchSelection)
+                    switch (searchSelection)
                     {
                         case 1:
                             searchQuery = ui.GetSearchQuery();
@@ -79,7 +80,7 @@ namespace Lexicon2024_Exercise5_Garage
                             results = garageHandler.GetVehiclesByColor(color);
                             ui.PresentSearchResult(results);
                             break; // Color
-                        default: 
+                        default:
                             break;
                     }
                     break;
@@ -90,15 +91,32 @@ namespace Lexicon2024_Exercise5_Garage
                 case 5: ui.ShowAllVehiclesAndDetails(garageHandler.GetVehicles()); break;
                 case 6:; break;
                 case 8:
-                    if (garageHandler.AddMockVehiclesToGarage()){
+                    if (garageHandler.AddMockVehiclesToGarage())
+                    {
                         Console.WriteLine("Added Mock Vehicles!");
-                    } else
+                    }
+                    else
                     {
                         Console.WriteLine("Failed to add Mock Vehicles. \n" +
                             "Maybe you already added them or there are Registration Number Duplicates?");
                     };
                     break; // 8. Add Mock Vehicles 
                 case 9: garageHandler = new GarageHandler(ui.SetGarageSize()); break;
+
+                case 11:
+                    List<Vehicle> parkedVehicles = garageHandler.GetVehicles();
+                    DataHandler.SaveGarageToFile(parkedVehicles, "garage.json");
+                    Console.WriteLine("Saved Parked vehicles to garage.json!");
+                    break;
+                case 12:
+                    var savedVehicles = DataHandler.LoadGarageFromFile<Vehicle>("garage.json");
+                    foreach (Vehicle vehicle in savedVehicles)
+                    {
+                        if (garageHandler.TryParkVehicle(vehicle))
+                        { Console.WriteLine("Parked New Vehicle from File!"); }
+                        else { Console.WriteLine("Failed to park Vehicle from File!"); }
+                    }
+                    break;
                 case 0:; break;
             }
             return 99; // I am aware magic variables are bad. 

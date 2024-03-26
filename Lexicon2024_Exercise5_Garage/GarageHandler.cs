@@ -27,10 +27,12 @@ namespace Lexicon2024_Exercise5_Garage
                 return false;
             }
             // There are duplicate regNrs, return false. 
+
             if (CheckDuplicateRegNr(vehicle.RegistrationNumber))
             {
                 return false;
             }
+
 
             // Try to park.
 
@@ -204,7 +206,7 @@ namespace Lexicon2024_Exercise5_Garage
             mockList.Add(mockThress);
             mockList.Add(mockFour);
 
-            foreach(Vehicle vehicle in mockList)
+            foreach (Vehicle vehicle in mockList)
             {
                 // There were no empty parking spots.
                 if (GetFirstEmptySpot() == -1)

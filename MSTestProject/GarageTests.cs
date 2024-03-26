@@ -15,7 +15,7 @@ namespace MSTestProject
         /// in the T[] parkingSpots Array
         /// </summary>
         [TestMethod]
-        public void TestParkVehicle()
+        public void TestParkVehicleAtIndexZero()
         {
             // Arrange
             var garage = new Lexicon2024_Exercise5_Garage.Garage<Vehicle>(4);
